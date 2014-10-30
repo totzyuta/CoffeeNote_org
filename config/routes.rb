@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'notes/index'
+  get 'notes/show'
+  get 'notes/new'
+  post 'notes' => 'notes#create'
+
+  get 'users/index'
+  get 'users/show/:username' => 'users#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
