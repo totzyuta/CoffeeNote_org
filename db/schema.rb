@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030115806) do
+ActiveRecord::Schema.define(version: 20141031113229) do
 
   create_table "notes", force: true do |t|
     t.integer  "uid"
     t.string   "blendName"
+    t.string   "origin"
+    t.string   "place"
+    t.integer  "roast"
+    t.integer  "dark"
+    t.integer  "body"
+    t.integer  "flavor"
+    t.integer  "acidity"
+    t.integer  "sweetness"
+    t.integer  "cleancup"
+    t.integer  "aftertaste"
+    t.integer  "overall"
+    t.text     "comment"
+    t.integer  "public"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
