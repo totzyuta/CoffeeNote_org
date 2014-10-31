@@ -1,7 +1,7 @@
 <%= form_for Note.new do |f| %>
   <%= f.label :blendName %>
   <%= f.text_field :blendName %>
-  <%= f.label :uid %>
-  <%= f.text_field :uid %>
+  <%= f.label :overall %>
+  <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %>
   <%= f.submit %>
 <% end %>

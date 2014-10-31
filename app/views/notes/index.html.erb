@@ -1,6 +1,6 @@
 <h1>All Notes</h1>
 <% @notes.each do |note| %>
-  <h2><%= note.blendName %></h2>
-  <p><%= note.uid %><p>
   <hr>
+  <p>Blend Name: <%= note.blendName %></p>
+  <p>Point: <%= note.overall %></p>
 <% end %>

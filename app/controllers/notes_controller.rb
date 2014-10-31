@@ -12,7 +12,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new
     @note.blendName = params[:note][:blendName]
-    @note.uid = params[:note][:uid]
+    @note.overall = params[:note][:overall]
     @note.save
     redirect_to '/notes/index'
   end
