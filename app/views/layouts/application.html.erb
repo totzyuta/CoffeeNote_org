@@ -8,7 +8,14 @@
 </head>
 <body>
   <h1>Coffee Note</h1>
-  <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
+  <% if logged_in? %>
+    <p><%= link_to 'Logout', logout_path %></p>
+  <% else %>
+    <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
   <hr>
 
 <%= yield %>
