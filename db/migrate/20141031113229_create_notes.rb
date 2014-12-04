@@ -2,9 +2,9 @@ class CreateNotes < ActiveRecord::Migration
   def change
     create_table :notes do |t|
       t.integer :uid
-      t.string :blendName
-      t.string :origin
-      t.string :place
+      t.string :blendName, limit: 50, null: false
+      t.string :origin, limit: 50, null: false
+      t.string :place, limit: 50, null: false
       t.integer :roast
       t.integer :dark
       t.integer :body
