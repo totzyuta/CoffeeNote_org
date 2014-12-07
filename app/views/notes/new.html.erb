@@ -1,7 +1,16 @@
 <%= form_for Note.new do |f| %>
-  <%= f.label :blendName %>
-  <%= f.text_field :blendName %>
-  <%= f.label :overall %>
-  <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %>
+  <p>BlendName: <%= f.text_field :blendName %></p>
+  <p>Origin: <%= f.text_field :origin %></p>
+  <p>Place: <%= f.text_field :place %></p>
+  <p>Roast: <%= select_tag 'note[roast]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Dark: <%= select_tag 'note[dark]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Body: <%= select_tag 'note[body]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Flavor: <%= select_tag 'note[flavor]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Acidity: <%= select_tag 'note[acidity]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Sweetness: <%= select_tag 'note[sweetness]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Cleancup: <%= select_tag 'note[cleancup]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Aftertaste: <%= select_tag 'note[aftertaste]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Overall: <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Comment: <%= f.text_field :comment %></p>
   <%= f.submit %>
 <% end %>

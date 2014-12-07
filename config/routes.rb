@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'notes/index'
   get 'notes/show'
   get 'notes/new'
+  get 'user/:username' => 'notes#show'
   post 'notes' => 'notes#create'
 
   get 'users/index'

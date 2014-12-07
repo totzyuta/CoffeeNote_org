@@ -1,7 +1,7 @@
-<h1>All Notes</h1>
-<p><%= link_to 'Create New Note', '/notes/new' %></p>
+<h1>All Users' Notes</h1>
 <% @notes.each do |note| %>
-  <hr>
   <p>Blend Name: <%= note.blendName %></p>
   <p>Point: <%= note.overall %></p>
+  <p>User_id: <%= note.user_id %></p>
+  <hr>
 <% end %>

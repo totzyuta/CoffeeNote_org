@@ -1,2 +1,10 @@
 <h1>Notes#show</h1>
 <p>Find me in app/views/notes/show.html.erb</p>
+<hr>
+<h1><%= @user.nickname %>'s NoteBook</h1>
+<% @notes.each do |note| %>
+  <p>Blend Name: <%= note.blendName %></p>
+  <p>Point: <%= note.overall %></p>
+  <p>User_id: <%= note.user_id %></p>
+  <hr>
+<% end %>
