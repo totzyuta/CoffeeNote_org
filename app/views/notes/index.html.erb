@@ -1,7 +1,16 @@
 <h1>All Users' Notes</h1>
 <% @notes.each do |note| %>
   <p>Blend Name: <%= note.blendName %></p>
-  <p>Point: <%= note.overall %></p>
   <p>User_id: <%= note.user_id %></p>
+  <p>Origin: <%= note.origin %></p>
+  <p>Place: <%= note.place %></p>
+  <p>roast: <%= note.roast %></p>
+  <p>body: <%= note.body %></p>
+  <p>flavor: <%= note.flavor %></p>
+  <p>acidity: <%= note.acidity %></p>
+  <p>sweetness: <%= note.sweetness %></p>
+  <p>cleancup: <%= note.cleancup %></p>
+  <p>aftertaste: <%= note.aftertaste %></p>
+  <p>overall: <%= note.overall %></p>
   <hr>
 <% end %>
