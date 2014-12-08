@@ -4,6 +4,7 @@
 <h1><%= @user.nickname %>'s NoteBook</h1>
 <% @notes.each do |note| %>
   <p>Blend Name: <%= note.blendName %></p>
+  <p>Date: <%= note.date %></p>
   <p>User_id: <%= note.user_id %></p>
   <p>Origin: <%= note.origin %></p>
   <p>Place: <%= note.place %></p>
@@ -15,5 +16,6 @@
   <p>cleancup: <%= note.cleancup %></p>
   <p>aftertaste: <%= note.aftertaste %></p>
   <p>overall: <%= note.overall %></p>
+  <p>comment: <%= note.comment %></p>
   <hr>
 <% end %>

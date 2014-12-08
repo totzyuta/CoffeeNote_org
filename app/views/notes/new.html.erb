@@ -2,6 +2,7 @@
   <p>BlendName: <%= f.text_field :blendName %></p>
   <p>Origin: <%= f.text_field :origin %></p>
   <p>Place: <%= f.text_field :place %></p>
+  <p>Date: <%= f.date_field :date %></p>
   <p>Roast: <%= select_tag 'note[roast]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
   <p>Dark: <%= select_tag 'note[dark]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
   <p>Body: <%= select_tag 'note[body]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
@@ -11,6 +12,7 @@
   <p>Cleancup: <%= select_tag 'note[cleancup]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
   <p>Aftertaste: <%= select_tag 'note[aftertaste]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
   <p>Overall: <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Comment: <%= f.text_field :comment %></p>
+  <p>Comment: </p>
+  <%= f.text_area :comment, cols: 40, rows: 10 %><br>
   <%= f.submit %>
 <% end %>
