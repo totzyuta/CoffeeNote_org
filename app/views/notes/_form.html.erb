@@ -1,4 +1,4 @@
-<%= form_for Note.new do |f| %>
+<%= form_for(@note) do |f| %>
   <p>BlendName: <%= f.text_field :blendName %></p>
   <p>Origin: <%= f.text_field :origin %></p>
   <p>Place: <%= f.text_field :place %></p>
@@ -16,3 +16,4 @@
   <%= f.text_area :comment, cols: 40, rows: 10 %><br>
   <%= f.submit %>
 <% end %>
+

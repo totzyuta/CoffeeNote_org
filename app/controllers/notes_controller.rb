@@ -37,12 +37,12 @@ class NotesController < ApplicationController
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
-
   end
+
 
   def edit
     @current_user = User.find_by(id: session[:user_id])
-    @note = Note.find_by(id: params[:id])
+    @note = Note.find(params[:id])
   end
 
   def update

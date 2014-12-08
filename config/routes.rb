@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/notes' => 'notes#create'
   get '/notes/:id/edit' => 'notes#edit', as: :edit_note
   get '/notes/:id' => 'notes#show', as: :note
-  # patch '/notes/:id' => 'notes#update'
+  patch '/notes/:id' => 'notes#update'
   put '/notes/:id' => 'notes#update'
   delete  '/notes/:id' => 'notes#destroy', as: :delete_note
   
