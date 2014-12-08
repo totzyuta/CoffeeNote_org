@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
   end
 
   def show
-    @user = Hash.new
-    if params[:username] == 'totz'
-      @user[:username] = 'totz'
-    elsif params[:username] = 'yuta'
-      @user[:username] = 'yuta'
-    end
+    @user = User.find_by(nickname: params[:username])
+    @notes = @user.notes
   end
+
+  def list
+    @user = User.find_by(nickname: params[:username])
+    @note = Note.find_by(id: params[:note_id])
+  end
+
 end

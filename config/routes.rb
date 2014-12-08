@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   get 'notes/index'
-  get 'notes/show'
+  get 'notes/:id' => 'notes#show'
+  # get 'notes/show'
   get 'notes/new'
-  get 'user/:username' => 'notes#show'
   post 'notes' => 'notes#create'
 
-  get 'users/index'
-  get 'users/show/:username' => 'users#show'
+  get 'users/' => 'users#index'
+  get 'users/:username' => 'users#show'
+  # get 'users/:username/:note_id' => 'users#list'
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout

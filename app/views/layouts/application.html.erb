@@ -10,9 +10,9 @@
   <h1><%= link_to 'Coffee Note', '/' %></h1>
   <% if logged_in? %>
     <p><%= link_to 'Logout', logout_path %></p>
-    <p>User ID: <%= @current_user.id %></p>
-    <p>Current User: <%= @current_user.nickname %></p>
-    <p><%= link_to 'My NoteBook', "/user/#{@current_user.nickname}" %></p>
+    <p>User ID: <%= current_user.id %></p>
+    <p>Current User: <%= current_user.nickname %></p>
+    <p><%= link_to 'My NoteBook', "/users/#{current_user.nickname}" %></p>
     <p><%= link_to 'Create New Note', '/notes/new' %></p>
   <% else %>
     <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
@@ -25,7 +25,10 @@
   <% end %>
   <hr>
 
-<%= yield %>
+  <%= yield %>
+
+  <hr>
+<%= link_to 'Back', :back %>
 
 </body>
 </html>
