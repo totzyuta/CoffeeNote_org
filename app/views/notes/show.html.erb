@@ -1,4 +1,10 @@
 <h1>Note of <%= @note.blendName %></h1>
+<% if logged_in? %>
+  <% if @current_user.id == @note.user_id %>
+    <p><%= link_to 'Edit', edit_note_path(@note) %></p>
+    <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+<% end %>
 <p>Blend Name: <%= @note.blendName %></p>
 <p>Date: <%= @note.date %></p>
 <p>User: <%= @user.nickname %></p>

@@ -12,8 +12,8 @@
     <p><%= link_to 'Logout', logout_path %></p>
     <p>User ID: <%= current_user.id %></p>
     <p>Current User: <%= current_user.nickname %></p>
-    <p><%= link_to 'My NoteBook', "/users/#{current_user.nickname}" %></p>
-    <p><%= link_to 'Create New Note', '/notes/new' %></p>
+    <p><%= link_to 'My NoteBook', user_path(current_user.nickname) %></p>
+    <p><%= link_to 'Create New Note', new_note_path %></p>
   <% else %>
     <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
   <% end %>

@@ -3,6 +3,6 @@
   <p>Blend Name: <%= note.blendName %></p>
   <p>Date: <%= note.date %></p>
   <p>overall: <%= note.overall %></p>
-  <p><%= link_to 'Detail', "/notes/#{note.id}" %>
+  <p><%= link_to 'Detail', note_path(note) %>
   <hr>
 <% end %>

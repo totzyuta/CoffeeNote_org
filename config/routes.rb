@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  get 'notes/index'
-  get 'notes/:id' => 'notes#show'
-  # get 'notes/show'
-  get 'notes/new'
-  post 'notes' => 'notes#create'
-
+  # notes
+  get '/notes' => 'notes#index'
+  get '/notes/new' => 'notes#new', as: :new_note
+  post '/notes' => 'notes#create'
+  get '/notes/:id/edit' => 'notes#edit', as: :edit_note
+  get '/notes/:id' => 'notes#show', as: :note
+  # patch '/notes/:id' => 'notes#update'
+  put '/notes/:id' => 'notes#update'
+  delete  '/notes/:id' => 'notes#destroy', as: :delete_note
+  
+  # users
   get 'users/' => 'users#index'
-  get 'users/:username' => 'users#show'
-  # get 'users/:username/:note_id' => 'users#list'
-
+  get 'users/:username' => 'users#show', as: :user
+  
+  # AOutH
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
 

@@ -1,6 +1,13 @@
 class NotesController < ApplicationController
-  def index
+
+  before_action :set_current_user
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
+
+  def set_current_user
     @current_user = User.find_by(id: session[:user_id])
+  end
+
+  def index
     # @user = User.find_by(nickname: params[:username])
     # @users = User.all
     # @notes = @users.notes
@@ -14,36 +21,62 @@ class NotesController < ApplicationController
   end
 
   def new
-    @current_user = User.find_by(id: session[:user_id])
+    @note = Note.new
   end
 
   def create
-    @current_user = User.find_by(id: session[:user_id])
-    @note = Note.new
-    @note.uid = session[:user_id]
-    @note.blendName = params[:note][:blendName]
-    @note.origin = params[:note][:blendName]
-    @note.place = params[:note][:blendName]
-    @note.roast = params[:note][:roast]
-    @note.body = params[:note][:body]
-    @note.flavor = params[:note][:flavor]
-    @note.acidity = params[:note][:acidity]
-    @note.sweetness = params[:note][:sweetness]
-    @note.cleancup = params[:note][:cleancup]
-    @note.aftertaste = params[:note][:aftertaste]
-    @note.overall = params[:note][:overall]
-    @note.comment = params[:note][:comment]
+    @note = Note.new(note_params)
     @note.user_id = @current_user.id
-    @note.save
-    redirect_to "/users/show/#{@current_user.nickname}/#{@note.id}"
+
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @note }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
+  def edit
+    @current_user = User.find_by(id: session[:user_id])
+    @note = Note.find_by(id: params[:id])
+  end
+
+  def update
+    respond_to do |format|
+      if @note.update(note_params)
+        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        # format.json { render action: 'edit', status: :created, location: @note }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @note.destroy
+
+    respond_to do |format|
+      format.html { redirect_to "/users/#{@current_user.nickname}", notice: 'Note was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private
 
   def note_params
     params.require(:note).permit(
-      :blendName, :overall
+      :blendName, :origin, :place, :date, :roast, :dark, :body, :flavor, :acidity, :sweetness, :cleancup, :aftertaste, :overall, :comment
     )
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
   end
 
 end
