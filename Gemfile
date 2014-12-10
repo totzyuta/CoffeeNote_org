@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+gem 'carrierwave'

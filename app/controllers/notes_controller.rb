@@ -1,3 +1,4 @@
+require 'kconv'
 class NotesController < ApplicationController
 
   before_action :set_current_user
@@ -71,7 +72,7 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(
-      :blendName, :origin, :place, :date, :roast, :dark, :body, :flavor, :acidity, :sweetness, :cleancup, :aftertaste, :overall, :comment
+      :blendName, :origin, :place, :date, :roast, :dark, :body, :flavor, :acidity, :sweetness, :cleancup, :aftertaste, :overall, :comment, :coffee_image1
     )
   end
 

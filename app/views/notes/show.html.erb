@@ -6,6 +6,11 @@
   <% end %>
 <% end %>
 <p>Blend Name: <%= @note.blendName %></p>
+<% if @note.coffee_image1? %>
+  <%= image_tag @note.coffee_image1.url %>
+<% else %>
+  <%= image_tag 'noimage.gif' %>
+<% end %>
 <p>Date: <%= @note.date %></p>
 <p>User: <%= @user.nickname %></p>
 <p>Origin: <%= @note.origin %></p>

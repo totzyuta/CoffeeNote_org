@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207173036) do
+ActiveRecord::Schema.define(version: 20141210102559) do
 
   create_table "notes", force: true do |t|
     t.integer  "uid"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141207173036) do
     t.string   "image_url",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

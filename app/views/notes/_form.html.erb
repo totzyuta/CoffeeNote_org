@@ -14,6 +14,8 @@
   <p>Overall: <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
   <p>Comment: </p>
   <%= f.text_area :comment, cols: 40, rows: 10 %><br>
-  <%= f.submit %>
+  <%= f.label :image %>
+  <%= f.file_field :coffee_image1 %>
+  <p><%= f.submit %></p>
 <% end %>
 
