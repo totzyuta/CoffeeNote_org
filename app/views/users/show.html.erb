@@ -1,0 +1,14 @@
+<h1><%= @user.nickname %>'s My Page</h1>
+<p>ID: <%= @user.id %></p>
+<p>Provider: <%= @user.provider %></p>
+<p>Name: <%= @user.nickname %></p>
+
+
+<h2><%= @user.nickname %>'s NoteBook</h2>
+<% @notes.each do |note| %>
+  <p>Blend Name: <%= note.blendName %></p>
+  <p>Date: <%= note.date %></p>
+  <p>overall: <%= note.overall %></p>
+  <p><%= link_to 'Detail', "/notes/#{note.id}" %>
+  <hr>
+<% end %>

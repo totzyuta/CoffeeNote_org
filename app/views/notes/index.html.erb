@@ -1,0 +1,8 @@
+<h1>All Users' Notes</h1>
+<% @notes.each do |note| %>
+  <p>Blend Name: <%= note.blendName %></p>
+  <p>Date: <%= note.date %></p>
+  <p>overall: <%= note.overall %></p>
+  <p><%= link_to 'Detail', "/notes/#{note.id}" %>
+  <hr>
+<% end %>
