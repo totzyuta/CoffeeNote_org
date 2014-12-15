@@ -1,4 +1,4 @@
-<h1>Note of <%= @note.blendName %></h1>
+<h1><%= @note.blendName %></h1>
 <% if logged_in? %>
   <% if @current_user.id == @note.user_id %>
     <p><%= link_to 'Edit', edit_note_path(@note) %></p>
@@ -7,7 +7,7 @@
 <% end %>
 <p>Blend Name: <%= @note.blendName %></p>
 <% if @note.coffee_image1? %>
-  <%= image_tag @note.coffee_image1.url %>
+  <%= image_tag @note.coffee_image1.url, width: '240' %>
 <% else %>
   <%= image_tag 'noimage.gif' %>
 <% end %>
@@ -16,6 +16,7 @@
 <p>Origin: <%= @note.origin %></p>
 <p>Place: <%= @note.place %></p>
 <p>roast: <%= @note.roast %></p>
+<p>dark: <%= @note.dark %></p>
 <p>body: <%= @note.body %></p>
 <p>flavor: <%= @note.flavor %></p>
 <p>acidity: <%= @note.acidity %></p>
@@ -24,4 +25,4 @@
 <p>aftertaste: <%= @note.aftertaste %></p>
 <p>overall: <%= @note.overall %></p>
 <p>comment: <%= @note.comment %></p>
-  <hr>
+<hr>

@@ -3,19 +3,50 @@
   <p>Origin: <%= f.text_field :origin %></p>
   <p>Place: <%= f.text_field :place %></p>
   <p>Date: <%= f.date_field :date %></p>
-  <p>Roast: <%= select_tag 'note[roast]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Dark: <%= select_tag 'note[dark]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Body: <%= select_tag 'note[body]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Flavor: <%= select_tag 'note[flavor]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Acidity: <%= select_tag 'note[acidity]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Sweetness: <%= select_tag 'note[sweetness]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Cleancup: <%= select_tag 'note[cleancup]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Aftertaste: <%= select_tag 'note[aftertaste]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
-  <p>Overall: <%= select_tag 'note[overall]', options_for_select(["1", "2", "3", "4", "5"]) %></p>
+  <p>Roast: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "roast", "#{i+1}") %> 
+  <% end %></p>
+  <p>Dark: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "dark", "#{i+1}") %> 
+  <% end %></p>
+  <p>Body: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "body", "#{i+1}") %> 
+  <% end %></p>
+  <p>Flavor: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "flavor", "#{i+1}") %> 
+  <% end %></p>
+  <p>Acidity: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "acidity", "#{i+1}") %> 
+  <% end %></p>
+  <p>Sweetness: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "sweetness", "#{i+1}") %> 
+  <% end %></p>
+  <p>Cleancup: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "cleancup", "#{i+1}") %> 
+  <% end %></p>
+  <p>Aftertaste: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "aftertaste", "#{i+1}") %> 
+  <% end %></p>
+  <p>Overall: 
+  <% 5.times do |i| %>
+    <%= i+1 %><%= radio_button("note", "overall", "#{i+1}") %> 
+  <% end %></p>
   <p>Comment: </p>
   <%= f.text_area :comment, cols: 40, rows: 10 %><br>
   <%= f.label :image %>
   <%= f.file_field :coffee_image1 %>
+<% if @note.coffee_image1? %>
+  <p><%= image_tag @note.coffee_image1.url, width: '240' %></p>
+<% else %>
+  <p><%= image_tag 'noimage.gif' %></p>
+<% end %>
   <p><%= f.submit %></p>
 <% end %>
-

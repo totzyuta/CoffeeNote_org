@@ -9,9 +9,6 @@ class NotesController < ApplicationController
   end
 
   def index
-    # @user = User.find_by(nickname: params[:username])
-    # @users = User.all
-    # @notes = @users.notes
     @notes = Note.all
   end
 
@@ -47,14 +44,27 @@ class NotesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        # format.json { render action: 'edit', status: :created, location: @note }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+    if note_params[:coffee_image1]
+      respond_to do |format|
+        if @note.update(note_params)
+          format.html { redirect_to @note, notice: "note was successfully updated with image file" }
+          # format.json { render action: 'edit', status: :created, location: @note }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @note.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        if Note.update_except_for_image_path(note_params)
+          format.html { redirect_to @note, notice: "#{params[:blendName]}note was successfully updated except for image file." }
+          # format.json { render action: 'edit', status: :created, location: @note }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @note.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
