@@ -1,7 +1,7 @@
 <h1><%= @user.nickname %>'s My Page</h1>
 <p>ID: <%= @user.id %></p>
 <p>Provider: <%= @user.provider %></p>
-<p>Name: <%= @user.nickname %></p>
+<p>Name: <%= link_to "#{@user.nickname}", user_path(@user.nickname) %></p>
 
 
 <h2><%= @user.nickname %>'s NoteBook</h2>

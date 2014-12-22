@@ -12,7 +12,7 @@
   <%= image_tag 'noimage.gif' %>
 <% end %>
 <p>Date: <%= @note.date %></p>
-<p>User: <%= @user.nickname %></p>
+<p>User: <%= link_to "#{@user.nickname}", "/users/#{@user.nickname}" %></p>
 <p>Origin: <%= @note.origin %></p>
 <p>Place: <%= @note.place %></p>
 <p>roast: <%= @note.roast %></p>
