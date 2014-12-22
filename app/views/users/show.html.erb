@@ -1,6 +1,7 @@
 <h1><%= @user.nickname %>'s My Page</h1>
 <p>ID: <%= @user.id %></p>
 <p>Provider: <%= @user.provider %></p>
+<p>Image: <%= image_tag(@user.image_url) %></p>
 <p>Name: <%= link_to "#{@user.nickname}", user_path(@user.nickname) %></p>
 
 

@@ -1,0 +1,18 @@
+$main-color: #f25353;
+
+body {
+  color: #A2A2A2;
+}
+
+p {
+  color: #A2A2A2;
+}
+
+a {
+  color: $main-color;
+  text-decoration: none;
+}
+
+h1 {
+  color: $main-color;
+}

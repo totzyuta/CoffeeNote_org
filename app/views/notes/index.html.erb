@@ -1,6 +1,6 @@
 <h1>All Users' Notes</h1>
 <% @notes.each do |note| %>
-  <p>Blend Name: <%= note.blendName %></p>
+  <p>Blend Name: <%= link_to note.blendName, note_path(note) %></p>
 <% if note.coffee_image1? %>
   <%= image_tag note.coffee_image1.url, width: '240' %>
 <% else %>
