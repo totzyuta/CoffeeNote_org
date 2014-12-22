@@ -10,6 +10,7 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.all
+    @users = User.all
   end
 
   def show

@@ -1,13 +1,25 @@
-<h1>All Users' Notes</h1>
+<h2>All Users' Notes</h2>
+<div class="row">
 <% @notes.each do |note| %>
-  <p>Blend Name: <%= link_to note.blendName, note_path(note) %></p>
-<% if note.coffee_image1? %>
-  <%= image_tag note.coffee_image1.url, width: '240' %>
-<% else %>
-  <%= image_tag 'noimage.gif' %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3><%= link_to note.blendName, note_path(note), :class => 'title' %></h3>
+        </div>
+      </div>
+      <% if note.coffee_image1? %>
+        <%= image_tag note.coffee_image1.url, size: '200x200' %>
+      <% else %>
+        <%= image_tag 'noimage.gif' %>
+      <% end %>
+      <div class="caption">
+        <p>Overall: <%= note.overall %></p>
+        <p>User: <%= link_to @users.find_by(id: note.user_id).nickname, user_path(@users.find_by(id: note.user_id).nickname) %></p>
+        <p>Date: <%= note.date %></p>
+        <%= link_to 'Detail', note_path(note), :class => 'btn btn-default', :role => 'button' %>
+      </div>
+    </div>
+  </div>
 <% end %>
-  <p>Date: <%= note.date %></p>
-  <p>overall: <%= note.overall %></p>
-  <p><%= link_to 'Detail', note_path(note) %>
-  <hr>
-<% end %>
+</div>

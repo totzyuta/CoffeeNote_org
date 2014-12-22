@@ -1,10 +1,16 @@
 $main-color: #f25353;
 $text-color: #858585;
-$title-color: #606060;
+$title-color: #666666;
+$background-color: #F5F5F5;
 
 body {
   color: $text-color;
   padding-top: 70px;
+  background-color: #F5F5F5;
+}
+
+p {
+  color: $text-color;
 }
 
 .navbar-default {
@@ -36,3 +42,7 @@ a {
   text-decoration: none;
 }
 
+.title {
+  color: $title-color;
+  text-decoration: none;
+}
