@@ -8,31 +8,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <div class="pure-menu pure-menu-open pure-menu-horizontal">
-      <%= link_to 'Coffee Note', '/', class: 'title pure-menu-heading' %>
-      <ul>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to 'Coffee Note', '/', class: 'navbar-brand' %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+          <li><%= link_to '+NewNote', new_note_path %></li>
+          <li><%= link_to 'MyNoteBook', user_path(current_user.nickname) %></li>
           <!-- <p>User ID: <%= current_user.id %></p> -->
-          <li><%= link_to image_tag(current_user.image_url, :size => "35x35"), user_path(current_user.nickname) %></li>
-          <li><%= link_to current_user.nickname, user_path(current_user.nickname) %></li>
-          <li><%= link_to 'My NoteBook', user_path(current_user.nickname) %></li>
-          <li><%= link_to 'Create New Note', new_note_path %></li>
+          <li><%= link_to image_tag(current_user.image_url, :size => "25x25", :class => 'avater-image'), user_path(current_user.nickname), :id => 'avater-image-link' %></li>
+          <li><%= link_to "@#{current_user.nickname}", user_path(current_user.nickname), :id => "user-name" %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         <% else %>
           <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
         <% end %>
-        <p>tesafsdafawegwargwe</p>
       </ul>
     </div>
-  </header>
+  </nav>
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% end %>
   <% if flash[:alert] %>
     <%= flash[:alert] %>
   <% end %>
-  <hr>
 
   <%= yield %>
 
