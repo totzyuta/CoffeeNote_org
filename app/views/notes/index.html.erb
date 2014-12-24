@@ -13,6 +13,9 @@
       <% end %>
     </div>
     <span class="note content note-title"><%= note.blendName %></span>
+    <!--
+      <%= link_to note.blendName, note_path(note), :class => 'note content note-title' %>
+    -->
     <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
     <p class="note content note-place"><%= note.place %></p>
     <p class="note content note-overall">
@@ -20,6 +23,7 @@
       ★
     <% end %>
     </p>
+    <%= link_to '', note_path(note), :class => 'note note-path' %>
     <p class="note content note-user"><%= link_to "@#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
   </div>
 <% end %>

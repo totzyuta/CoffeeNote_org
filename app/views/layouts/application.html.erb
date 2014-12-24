@@ -9,24 +9,33 @@
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'Coffee Note', '/', class: 'navbar-brand' %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to '+NewNote', new_note_path %></li>
-          <li><%= link_to 'MyNoteBook', user_path(current_user.nickname) %></li>
-          <!-- <p>User ID: <%= current_user.id %></p> -->
-          <li><%= link_to image_tag(current_user.image_url, :size => "25x25", :class => 'avater-image'), user_path(current_user.nickname), :id => 'avater-image-link' %></li>
-          <li><%= link_to "@#{current_user.nickname}", user_path(current_user.nickname), :id => "user-name" %></li>
-          <li><%= link_to 'Logout', logout_path %></li>
-        <% else %>
-          <li><%= link_to 'Login by Twitter', '/auth/twitter' %></li>
-        <% end %>
-      </ul>
+    <div class="container-fluid">
+      <div class="navbar-header" data-toggle="collapse">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <%= link_to 'Coffee Note', root_path, class: 'nav navbar-nav navbar-left navbar-brand' %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to '+NewNote', new_note_path %></li>
+            <li><%= link_to 'MyNoteBook', user_path(current_user.nickname) %></li>
+            <!-- <p>User ID: <%= current_user.id %></p> -->
+            <li><%= link_to image_tag(current_user.image_url, :size => "25x25", :class => 'avater-image'), user_path(current_user.nickname), :id => 'avater-image-link' %></li>
+            <li><%= link_to "@#{current_user.nickname}", user_path(current_user.nickname), :id => "user-name" %></li>
+            <li><%= link_to 'Logout', logout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login by Twitter', '/auth/twitter' %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </nav>
+
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% end %>

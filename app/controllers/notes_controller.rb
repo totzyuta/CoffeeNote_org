@@ -47,7 +47,7 @@ class NotesController < ApplicationController
   def update
     if note_params[:coffee_image1]
       respond_to do |format|
-        if @note.where("id = #{@note.id}").update(note_params)
+        if @note.update(note_params)
           format.html { redirect_to @note, notice: "note was successfully updated with image file" }
           # format.json { render action: 'edit', status: :created, location: @note }
           format.json { head :no_content }
