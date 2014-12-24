@@ -47,7 +47,7 @@ class NotesController < ApplicationController
   def update
     if note_params[:coffee_image1]
       respond_to do |format|
-        if @note.update(note_params)
+        if @note.where("id = #{@note.id}").update(note_params)
           format.html { redirect_to @note, notice: "note was successfully updated with image file" }
           # format.json { render action: 'edit', status: :created, location: @note }
           format.json { head :no_content }
@@ -58,7 +58,7 @@ class NotesController < ApplicationController
       end
     else
       respond_to do |format|
-        if Note.update_except_for_image_path(note_params)
+        if Note.where("id = #{@note.id}").update_except_for_image_path(note_params)
           format.html { redirect_to @note, notice: "#{params[:blendName]}note was successfully updated except for image file." }
           # format.json { render action: 'edit', status: :created, location: @note }
           format.json { head :no_content }
