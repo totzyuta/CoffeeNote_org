@@ -22,7 +22,7 @@
           <li><%= link_to "@#{current_user.nickname}", user_path(current_user.nickname), :id => "user-name" %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         <% else %>
-          <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
+          <li><%= link_to 'Login by Twitter', '/auth/twitter' %></li>
         <% end %>
       </ul>
     </div>

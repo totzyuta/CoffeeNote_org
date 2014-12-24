@@ -1,25 +1,26 @@
+<%= stylesheet_link_tag    'inside/notes_index', media: 'all', 'data-turbolinks-track' => true %>
+
 <h2>All Users' Notes</h2>
 <div class="row">
 <% @notes.each do |note| %>
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h3><%= link_to note.blendName, note_path(note), :class => 'title' %></h3>
-        </div>
-      </div>
+    <div class="note note-all">
       <% if note.coffee_image1? %>
-        <%= image_tag note.coffee_image1.url, size: '200x200' %>
+        <%= link_to image_tag(note.coffee_image1.url, size: '350x350', :class => 'note note-image'), note_path(note) %>
+        
       <% else %>
-        <%= image_tag 'noimage.gif' %>
+        <%= link_to image_tag('sample-image.gif', size: '350x350x', :class => 'note-image'), note_path(note) %>
       <% end %>
-      <div class="caption">
-        <p>Overall: <%= note.overall %></p>
-        <p>User: <%= link_to @users.find_by(id: note.user_id).nickname, user_path(@users.find_by(id: note.user_id).nickname) %></p>
-        <p>Date: <%= note.date %></p>
-        <%= link_to 'Detail', note_path(note), :class => 'btn btn-default', :role => 'button' %>
-      </div>
     </div>
+    <span class="note content note-title"><%= note.blendName %></span>
+    <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
+    <p class="note content note-place"><%= note.place %></p>
+    <p class="note content note-overall">
+    <% note.overall.times do %>
+      ★
+    <% end %>
+    </p>
+    <p class="note content note-user"><%= link_to "@#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
   </div>
 <% end %>
 </div>

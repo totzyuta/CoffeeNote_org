@@ -2,7 +2,11 @@
   <p>BlendName: <%= f.text_field :blendName %></p>
   <p>Origin: <%= f.text_field :origin %></p>
   <p>Place: <%= f.text_field :place %></p>
-  <p>Date: <%= f.date_field :date %></p>
+  <% if @note.date != nil %>
+    <p>Date: <%= f.date_field(:date) %></p>
+  <% else %>
+    <p>Date: <%= f.date_field(:date, value: Date.today) %></p>
+  <% end %>
   <p>Roast: 
   <% 5.times do |i| %>
     <%= i+1 %><%= radio_button("note", "roast", "#{i+1}") %> 
