@@ -4,6 +4,17 @@ $text-color: #858585;
 $title-color: #666666;
 $background-color: #F5F5F5;
 
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+}
+
+.note {
+  width: 320px;
+  height: 320px;
+}
+
 .panel-body {
   background-color: $background-color;
   padding-top: 0px;
@@ -24,10 +35,6 @@ h3 {
   color: $text-color;
 }
 
-.row{
-  margin-right: 0px;
-  margin-left: 0px;
-}
 
 .note-all {
   background-color: #000000;
@@ -119,6 +126,7 @@ h3 {
   padding-bottom: 8px;
   display: inline;
   a {
+    color: #FFF;
     &:hover { color: #FFFFFF; }
     &:visited { color: #FFFFFF; }
     &:visited { color: #FFFFFF; }

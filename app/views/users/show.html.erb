@@ -1,20 +1,34 @@
-<h1><%= @user.nickname %>'s My Page</h1>
-<p>ID: <%= @user.id %></p>
-<p>Provider: <%= @user.provider %></p>
-<p>Image: <%= image_tag(@user.image_url) %></p>
-<p>Name: <%= link_to "#{@user.nickname}", user_path(@user.nickname) %></p>
+<%= stylesheet_link_tag 'inside/users_show' %>
 
 
-<h2><%= @user.nickname %>'s NoteBook</h2>
-<% @notes.each do |note| %>
-  <p>Blend Name: <%= note.blendName %></p>
-<% if note.coffee_image1? %>
-  <%= image_tag note.coffee_image1.url, width: '240' %>
-<% else %>
-  <%= image_tag 'noimage.gif' %>
-<% end %>
-  <p>Date: <%= note.date %></p>
-  <p>overall: <%= note.overall %></p>
-  <p><%= link_to 'Detail', note_path(note.id) %>
-  <hr>
-<% end %>
+<div class="container">
+
+  <h1><%= @user.nickname %>'s My Page</h1>
+
+  <!-- sidebar -->
+  <div class="sidebar">
+    <p>ID: <%= @user.id %></p>
+    <p>Provider: <%= @user.provider %></p>
+    <p>Image: <%= image_tag(@user.image_url) %></p>
+    <p>Name: <%= link_to "#{@user.nickname}", user_path(@user.nickname) %></p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="body">
+    <h2><%= @user.nickname %>'s NoteBook</h2>
+    <% @notes.each do |note| %>
+      <div class="note">
+        <p>Blend Name: <%= note.blendName %></p>
+        <% if note.coffee_image1? %>
+          <%= image_tag note.coffee_image1.url, width: '240' %>
+        <% else %>
+          <%= image_tag 'noimage.gif' %>
+        <% end %>
+        <p>Date: <%= note.date %></p>
+        <p>overall: <%= note.overall %></p>
+        <p><%= link_to 'Detail', note_path(note.id) %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
