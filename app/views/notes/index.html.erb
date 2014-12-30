@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'inside/notes_index' %>
 
-<h2>All Users' Notes</h2>
+<!--
+  <h2>All Users' Notes</h2>
+-->
 
 <div class="container">
 <% @notes.each do |note| %>
@@ -11,19 +13,16 @@
     <% else %>
       <%= link_to image_tag('sample-image.gif', size: '350x350x', :class => 'note-image'), note_path(note) %>
     <% end %>
+    <%= link_to note.blendName, note_path(note), :class=> 'note content note-title' %>
+    <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
+    <p class="note content note-place"><%= note.place %></p>
+    <p class="note content note-overall">
+    <% note.overall.times do %>
+      ★
+    <% end %>
+    </p>
+    <%= link_to '', note_path(note), :class => 'note note-cover' %>
+    <p class="note content note-user"><%= link_to "@#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
   </div>
-  <span class="note content note-title"><%= note.blendName %></span>
-  <!--
-    <%= link_to note.blendName, note_path(note), :class => 'note content note-title' %>
-  -->
-  <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
-  <p class="note content note-place"><%= note.place %></p>
-  <p class="note content note-overall">
-  <% note.overall.times do %>
-    ★
-  <% end %>
-  </p>
-  <%= link_to '', note_path(note), :class => 'note note-path' %>
-  <p class="note content note-user"><%= link_to "@#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
 <% end %>
 </div>
