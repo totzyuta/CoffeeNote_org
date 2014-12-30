@@ -46,17 +46,25 @@ a {
   text-decoration: none;
 }
 
+.navbar a {
+  color: $main-color !important
+}
+
 .title {
   color: $title-color;
   text-decoration: none;
 }
 
 footer {
-  height: 100px;
+  height: 40px;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 40px;
+  text-align: center;
+  .copyright {
+    margin: -10px;
+  }
   .line {
-    border-left: 1px solid #878787;
+    border-left: 1px solid #AAA;
     position: absolute;
     height: 80px;
     margin-top: -17px;

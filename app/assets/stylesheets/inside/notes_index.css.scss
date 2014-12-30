@@ -35,7 +35,7 @@ h3 {
   margin-top: 10px;
 }
 
-.note-cover {
+.note-back-cover {
   display: inline-block;
   position: relative;
   top: -433px;
@@ -44,9 +44,20 @@ h3 {
   z-index: 10;
   background-color: #000;
   opacity: 0.3;
+}
+
+.note-cover {
+  display: inline-block;
+  position: relative;
+  top: -718px;
+  width: 100%;
+  height: 280px;
+  background-color: #FFF;
+  z-index: 18;
+  opacity: 0;
   -webkit-transition: opacity 0.15s linear;  
   &:hover {
-    opacity: 0.1;
+    opacity: 0.3;
     text-decoration: none;
   }
 }
@@ -93,12 +104,14 @@ h3 {
   font-weight: 100;
   margin-top: 7px;
   margin-left: 17px;
+  z-index: 15;
 }
 
 .note-overall {
   top: -219px;
   font-size: 32px;
   margin-left: 20px;
+  z-index: 15;
 }
 
 .note-place {
@@ -110,14 +123,14 @@ h3 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  z-index: 15;
 }
 
 .note-user {
   font-size: 20px;
   height: 50px;
   background-color: rgba(35, 131, 99, 1.0);
-  top: -471px;
-  // right: -260px;
+  top: -756px;
   padding: 15px;
   padding-top: 8px;
   padding-bottom: 8px;

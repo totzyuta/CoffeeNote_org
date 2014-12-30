@@ -21,6 +21,7 @@
       ★
     <% end %>
     </p>
+    <div class="note note-back-cover"></div>
     <%= link_to '', note_path(note), :class => 'note note-cover' %>
     <p class="note content note-user"><%= link_to "@#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
   </div>
