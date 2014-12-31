@@ -4,7 +4,7 @@
   <%= link_to @note.blendName, note_path(@note), :class => 'blendName' %>
   <span class="stars"><% @note.overall.times { %>★ <% } %></span>
   <% if @note.coffee_image1? %>
-  <%= image_tag @note.coffee_image1.url, :class => 'image' %>
+    <%= image_tag @note.coffee_image1.url, :class => 'image' %>
   <% else %>
     <%= image_tag 'noimage.gif', :class=> 'image' %>
   <% end %>
