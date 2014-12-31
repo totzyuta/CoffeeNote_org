@@ -13,6 +13,7 @@ $background-color: #F5F5F5;
   margin-right: auto;
   background-color: #FFF;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .blendName {
@@ -97,6 +98,7 @@ hr {
   height: 150px;
   padding: 10px;
   background-color: #EFEFEF;
+  overflow: scroll;
 }
 
 .button {
