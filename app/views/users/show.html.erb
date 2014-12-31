@@ -16,27 +16,34 @@
     <span class='data'><%= "#{@user.created_at}".gsub!(/^(....)-(.*)-(\S*)\s.*/, '\1 / \2 / \3') %></span>
     <hr>
     <span class='attribute'>Fav Roaster</span>
-    <span class='data'><%= "LightUp" %></span>
+    <span class='data'><%= @user.fav_roaster %></span>
     <hr>
     <span class='attribute'>Profile</span>
-    <span class='profile'><%= "Hi I am Yuta. I love African Coffee. Nice to meet you." %></span>
+    <span class='profile'><%= @user.profile %></span>
   </div>
   </div>
 
   <!-- Main Content -->
-  <div class="body">
+  <div class="notes">
     <p class="title"><%= @user.nickname %>'s NoteBook</p>
     <% @notes.each do |note| %>
-      <div class="note">
-        <p>Blend Name: <%= note.blendName %></p>
+      <div class="note note-all">
         <% if note.coffee_image1? %>
-          <%= image_tag note.coffee_image1.url, width: '240' %>
+          <%= link_to image_tag(note.coffee_image1.url, size: '350x350', :class => 'note note-image'), note_path(note) %>
+          
         <% else %>
-          <%= image_tag 'noimage.gif' %>
+          <%= link_to image_tag('sample-image.gif', size: '350x350x', :class => 'note-image'), note_path(note) %>
         <% end %>
-        <p>Date: <%= note.date %></p>
-        <p>overall: <%= note.overall %></p>
-        <p><%= link_to 'Detail', note_path(note.id) %>
+        <%= link_to note.blendName, note_path(note), :class=> 'note content note-title' %>
+        <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
+        <p class="note content note-place"><%= note.place %></p>
+        <p class="note content note-overall">
+        <% note.overall.times do %>
+          ★
+        <% end %>
+        </p>
+        <div class="note note-back-cover"></div>
+        <%= link_to '', note_path(note), :class => 'note note-cover' %>
       </div>
     <% end %>
   </div>

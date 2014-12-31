@@ -9,6 +9,7 @@ $background-color: #F5F5F5;
   margin-left: auto;
   width: 1280px;
   height: 100%;
+  overflow: hidden;
 }
 
 .note-all {
@@ -16,22 +17,6 @@ $background-color: #F5F5F5;
   height: 280px;
   float: left;
   margin: 16px;
-}
-
-.panel-body {
-  background-color: $background-color;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-h2 {
-  margin-top: 5px;
-  margin-bottom: 25px;
-  margin-left: 20px;
-}
-
-h3 {
-  margin-top: 10px;
 }
 
 .note-back-cover {
@@ -149,9 +134,10 @@ h3 {
   z-index: 20;
 }
 
-.avater-image {
+.user-image {
   position: relative;
   top: -760px;
-  left: 25px;
+  left: 20px;
   z-index: 21;
+  border-radius: 100px;
 }

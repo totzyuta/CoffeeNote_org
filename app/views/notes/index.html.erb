@@ -23,7 +23,7 @@
     </p>
     <div class="note note-back-cover"></div>
     <%= link_to '', note_path(note), :class => 'note note-cover' %>
-    <%= link_to image_tag(current_user.image_url, :size => "25x25", :class => 'avater-image'), user_path(current_user.nickname), :id => 'avater-image-link' %>
+    <%= link_to image_tag(@users.find_by(id: note.user_id).image_url, :size => "25x25", :class => 'user-image'), user_path(@users.find_by(id: note.user_id).nickname), :id => 'user-image-link' %>
     <p class="note content note-user"><%= link_to "#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
   </div>
 <% end %>
