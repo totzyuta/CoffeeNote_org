@@ -1,5 +1,6 @@
 $main-color: #ef7169;
 $blue-color: #89BBFE;
+$green-color: #73CC81;
 $text-color: #878787;
 $title-color: #666666;
 $background-color: #F5F5F5; 
@@ -96,6 +97,7 @@ hr {
   width: 825px;
   height: 600px;
   margin-left: 10px;
+  overflow: hidden;
 }
 
 .title {
@@ -202,4 +204,33 @@ hr {
   white-space: nowrap;
   text-overflow: ellipsis;
   z-index: 15;
+}
+
+.button {
+  position: relative;
+  padding: 5px;
+  color: $green-color;
+  font-size: 20px;
+  font-weight: 100;
+  border: 1px solid $green-color;
+  &:hover {
+    color: #FFF;
+    background-color: $green-color;
+    text-decoration: none;
+  }
+  z-index: 30;
+}
+
+.editButton{
+  top: -880px;
+  left: 23px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.deleteButton {
+  top: -880px;
+  left: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }

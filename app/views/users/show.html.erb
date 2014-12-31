@@ -44,6 +44,12 @@
         </p>
         <div class="note note-back-cover"></div>
         <%= link_to '', note_path(note), :class => 'note note-cover' %>
+        <% if logged_in? %>
+          <% if @current_user.id == note.user_id %>
+            <%= link_to 'Edit', edit_note_path(note), :class => 'button editButton' %>
+            <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button deleteButton' %>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
