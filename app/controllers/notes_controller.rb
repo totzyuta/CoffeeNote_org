@@ -17,6 +17,33 @@ class NotesController < ApplicationController
     # Fetch a certain note
     @note = Note.find_by(id: params[:id])
     @user = User.find_by(id: @note.user_id)
+    @roast = ''
+    case @note.roast
+    when 1
+        @roast =  "Light"
+    when 2
+        @roast = "Medium"
+    when 3
+        @roast = "Dark"
+    end
+    @dark = ''
+    case @note.dark
+    when 1
+        @dark =  "Light"
+    when 2
+        @dark = "Medium"
+    when 3
+        @dark = "Dark"
+    end
+    @body = ''
+    case @note.body
+    when 1
+        @body =  "Light"
+    when 2
+        @body = "Medium"
+    when 3
+        @body = "Heavy"
+    end
   end
 
   def new
