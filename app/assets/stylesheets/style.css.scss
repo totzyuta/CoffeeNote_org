@@ -3,10 +3,15 @@ $text-color: #858585;
 $title-color: #666666;
 $background-color: #F5F5F5;
 
+html { 
+  height: 100%;
+}
+
 body {
   color: $text-color;
   padding-top: 70px;
   background-color: #F5F5F5;
+  height: 100%;
 }
 
 p {
@@ -53,6 +58,10 @@ a {
 .title {
   color: $title-color;
   text-decoration: none;
+}
+
+.wrapper {
+  min-height: 86%;
 }
 
 footer {

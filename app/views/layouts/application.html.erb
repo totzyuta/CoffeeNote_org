@@ -10,15 +10,21 @@
 <body>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-      <div class="navbar-header" data-toggle="collapse">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-       <%= link_to 'Coffee Note', root_path, class: 'nav navbar-nav navbar-left navbar-brand' %>
-      </div>
+      <a href="/notes">
+        <!-- TODO: collapse the data when toggle apper / link not working
+        <div class="navbar-header" data-toggle="collapse">
+        -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Coffee Note', notes_path, class: 'nav navbar-nav navbar-left navbar-brand' %>
+        <!--
+        </div>
+        -->
+      </a>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -43,10 +49,10 @@
     <%= flash[:alert] %>
   <% end %>
 -->
+  <div class="wrapper">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
-  
-</body>
   <footer>
   <hr>
   <p class="footer copyright">Copyright (c) CoffeeNote inc. all rights reserved.</p>
@@ -55,4 +61,6 @@
     <div class="footer line" id="footer-line2"></div>
   -->
   </footer>
+  
+</body>
 </html>
