@@ -1,56 +1,95 @@
+<%= stylesheet_link_tag 'inside/notes_show' %>
+
 <%= form_for(@note) do |f| %>
-  <p>BlendName: <%= f.text_field :blendName %></p>
-  <p>Origin: <%= f.text_field :origin %></p>
-  <p>Place: <%= f.text_field :place %></p>
-  <% if @note.date != nil %>
-    <p>Date: <%= f.date_field(:date) %></p>
-  <% else %>
-    <p>Date: <%= f.date_field(:date, value: Date.today) %></p>
-  <% end %>
-  <p>Roast: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "roast", "#{i+1}") %> 
-  <% end %></p>
-  <p>Dark: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "dark", "#{i+1}") %> 
-  <% end %></p>
-  <p>Body: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "body", "#{i+1}") %> 
-  <% end %></p>
-  <p>Flavor: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "flavor", "#{i+1}") %> 
-  <% end %></p>
-  <p>Acidity: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "acidity", "#{i+1}") %> 
-  <% end %></p>
-  <p>Sweetness: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "sweetness", "#{i+1}") %> 
-  <% end %></p>
-  <p>Cleancup: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "cleancup", "#{i+1}") %> 
-  <% end %></p>
-  <p>Aftertaste: 
-  <% 5.times do |i| %>
-    <%= i+1 %><%= radio_button("note", "aftertaste", "#{i+1}") %> 
-  <% end %></p>
-  <p>Overall: 
+<div class="box">
+  <%= f.text_field :blendName, :class => 'blendName' %>
+  <span class="stars">
   <% 5.times do |i| %>
     <%= i+1 %><%= radio_button("note", "overall", "#{i+1}") %> 
-  <% end %></p>
-  <p>Comment: </p>
-  <%= f.text_area :comment, cols: 40, rows: 10 %><br>
-  <%= f.label :image %>
+  <% end %>
+  </span>
   <%= f.file_field :coffee_image1 %>
-<% if @note.coffee_image1? %>
-  <p><%= image_tag @note.coffee_image1.url, width: '240' %></p>
-<% else %>
-  <p><%= image_tag 'noimage.gif' %></p>
-<% end %>
-  <p><%= f.submit %></p>
+  <% if @note.coffee_image1? %>
+    <%= image_tag @note.coffee_image1.url, width: '240', :class => 'image' %>
+  <% else %>
+    <%= image_tag 'noimage.gif', :class => 'image' %>
+  <% end %>
+  <div class="attributes">
+    <span class='attribute'>Date</span>
+    <% if @note.date != nil %>
+      <%= f.date_field :date, :class => 'data' %>
+    <% else %>
+      <%= f.date_field :date, value: Date.today, :class => 'data' %>
+    <% end %>
+    <hr>
+    <span class='attribute'>Place</span>
+    <%= f.text_field :place, :class => 'data' %>
+    <hr>
+    <span class='attribute'>Origin</span>
+    <%= f.text_field :origin, :class => 'data' %>
+    <hr>
+    <span class='attribute'>roast</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "roast", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>dark</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "dark", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>body</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "body", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>flavor</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "flavor", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>acidity</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "acidity", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>sweetness</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "sweetness", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>cleancup</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "cleancup", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>aftertaste</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "aftertaste", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+  </div>
+  <span class='comment'>comment</span>
+  <div class='comment-box'>
+    <%= f.text_area :comment, cols: 40, rows: 10 %><br>
+  </div>
+  <%= f.submit :class => 'button' %>
+  <p class='note-user'><%= link_to image_tag(@current_user.image_url, :size => "25x25", :class => 'user-image'), user_path(@current_user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@current_user.nickname}", "/users/#{@current_user.nickname}", :class => 'note-user-text' %></p>
+</div>
 <% end %>
