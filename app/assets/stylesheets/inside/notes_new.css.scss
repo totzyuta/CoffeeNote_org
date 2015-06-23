@@ -135,12 +135,25 @@ hr {
   padding-left: 30px;
   padding-right: 30px;
 }
-
 .deleteButton {
   left: 382px;
   top: -371px;
   padding-left: 20px;
   padding-right: 20px;
+}
+#submit-button {
+  float: right;
+  width: 250px;
+  height: 70px;
+  margin-top: -425px;
+  margin-right: 122px;
+  font-size: 30px;
+  background-color: #fff;
+  &:hover { 
+    background-color: $green-color; /* to override */
+  }
+  -webkit-transition: background-color 0.5s; /* Safari */
+  transition: background-color 0.5s;
 }
 
 .user-image {

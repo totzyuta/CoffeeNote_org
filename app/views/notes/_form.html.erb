@@ -10,7 +10,7 @@
   <% if @note.coffee_image1? %>
     <%= image_tag @note.coffee_image1.url, width: '240', :class => 'image' %>
   <% else %>
-    <%= image_tag 'noimage.gif', :class => 'image' %>
+    <%= image_tag 'sample-image.jpg', :class => 'image', :style =>'opacity: 0.5;' %>
   <% end %>
   <div class="attributes">
     <span class='attribute'>Date</span>
@@ -87,7 +87,6 @@
   <div class='comment-box'>
     <%= f.text_area :comment, cols: 40, rows: 10 %><br>
   </div>
-  <%= f.submit :class => 'button' %>
-  <p class='note-user'><%= link_to image_tag(@current_user.image_url, :size => "25x25", :class => 'user-image'), user_path(@current_user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@current_user.nickname}", "/users/#{@current_user.nickname}", :class => 'note-user-text' %></p>
+  <%= f.submit :class => 'button', :id => 'submit-button', :value => 'Update' %>
 </div>
 <% end %>

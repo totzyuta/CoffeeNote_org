@@ -17,3 +17,6 @@
 
 # Ignore image files
 public/uploads/
+
+# I hate you
+.DS_Store
