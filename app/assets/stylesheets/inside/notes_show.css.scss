@@ -138,22 +138,19 @@ hr {
 }
 
 .note-user {
-  font-size: 30px;
-  font-weight: 100;
-  max-width: 350px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background-color: rgba(157, 219, 167, 1.0);
+  display: inline;
   float: right;
-  margin-top: -410px;
   max-width: 350px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  margin-top: -415px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 16px;
   padding-right: 23px;
-  display: inline;
+  font-size: 30px;
+  font-weight: 100;
+  text-overflow: ellipsis;
+  background-color: rgba(157, 219, 167, 1.0);
+  white-space: nowrap;
   a {
     color: #FFF;
     &:hover { 

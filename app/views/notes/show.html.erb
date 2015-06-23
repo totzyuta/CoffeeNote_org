@@ -47,11 +47,13 @@
   <div class='comment-box'>
     <span class='comment-text'><%= @note.comment %></span>
   </div>
-  <% if logged_in? %>
-    <% if @current_user.id == @note.user_id %>
-      <%= link_to 'Edit', edit_note_path(@note), :class => 'button editButton' %>
-      <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button deleteButton' %>
+  <div class="user-wrapper">
+    <% if logged_in? %>
+      <% if @current_user.id == @note.user_id %>
+        <%= link_to 'Edit', edit_note_path(@note), :class => 'button editButton' %>
+        <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button deleteButton' %>
+      <% end %>
     <% end %>
-  <% end %>
-  <p class='note-user'><%= link_to image_tag(@user.image_url, :size => "25x25", :class => 'user-image'), user_path(@user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@user.nickname}", "/users/#{@user.nickname}", :class => 'note-user-text' %></p>
+    <span class='note-user'><%= link_to image_tag(@user.image_url, :size => "25x25", :class => 'user-image'), user_path(@user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@user.nickname}", "/users/#{@user.nickname}", :class => 'note-user-text' %></span>
+  </div>
 </div>
