@@ -1,11 +1,31 @@
 <%= form_for(@note) do |f| %>
 <div class="box">
   <%= f.text_field :blendName, :class => 'blendName', :placeholder => 'Blend Name' %>
+  <!-- 
   <span class="stars">
   <% 5.times do |i| %>
     <%= i+1 %><%= radio_button("note", "overall", "#{i+1}") %> 
   <% end %>
-  </span>
+  -->
+  <%= f.hidden_field :overall, :value => '3', :id => 'overall' %>
+  <div id="rateYo"></div>
+  <script src="jquery.js"></script>
+  <script src="jquery.rateyo.js"></script> </span>
+  <script>
+/* Javascript */
+$(function () {
+  $("#rateYo").rateYo({
+    numStars: 5,
+    normalFill: "#EFEFEF",
+    ratedFill: "#fff251",
+    rating: ,
+    fullStar: true
+  })
+  .on("rateyo.set", function (e, data) {
+    document.getElementById('overall').value = data.rating;
+  });
+});
+  </script>
   <%= f.file_field :coffee_image1 %>
   <% if @note.coffee_image1? %>
     <%= image_tag @note.coffee_image1.url, width: '240', :class => 'image' %>
