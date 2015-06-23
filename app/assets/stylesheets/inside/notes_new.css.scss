@@ -7,7 +7,7 @@ $background-color: #F5F5F5;
 
 .box {
   width: 960px;
-  height: 680px;
+  height: 790px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -37,6 +37,10 @@ $background-color: #F5F5F5;
     text-decoration: none;
   }
 }
+#note_blendName {
+  border: none;
+  outline: none;
+}
 
 .stars {
   float: right;
@@ -54,7 +58,11 @@ $background-color: #F5F5F5;
   top: 100px;
   left: 20px
 }
-
+#note_coffee_image1 {
+  position: relative;
+  top: 491px;
+  margin-left: 20px;
+}
 .attributes {
   position: relative;
   width: 500px;
@@ -90,16 +98,23 @@ hr {
   font-size: 18px;
   color: #bfbfbf;
 }
-
 .comment-box {
   position: relative;
   top: -340px;
   left: 18px;
   width: 425px;
-  height: 150px;
+  height: 190px;
   padding: 10px;
-  background-color: #EFEFEF;
+  background-color: $background-color;
   overflow: scroll;
+}
+#note_comment {
+  height: 170px;
+  width: 100%;
+  border: none;
+  background-color: $background-color;
+  outline: none;
+  resize: none;
 }
 
 .button {
@@ -145,7 +160,7 @@ hr {
   text-overflow: ellipsis;
   background-color: rgba(157, 219, 167, 1.0);
   float: right;
-  margin-top: -410px;
+  margin-top: -470px;
   max-width: 350px;
   white-space: nowrap;
   text-overflow: ellipsis;

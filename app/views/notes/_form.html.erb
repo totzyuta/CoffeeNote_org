@@ -1,8 +1,6 @@
-<%= stylesheet_link_tag 'inside/notes_show' %>
-
 <%= form_for(@note) do |f| %>
 <div class="box">
-  <%= f.text_field :blendName, :class => 'blendName' %>
+  <%= f.text_field :blendName, :class => 'blendName', :placeholder => 'Blend Name' %>
   <span class="stars">
   <% 5.times do |i| %>
     <%= i+1 %><%= radio_button("note", "overall", "#{i+1}") %> 
