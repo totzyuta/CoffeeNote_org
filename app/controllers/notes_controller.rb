@@ -15,8 +15,8 @@ class NotesController < ApplicationController
 
   def show
     # Fetch a certain note
-    @note = Note.find_by(id: params[:id])
-    @user = User.find_by(id: @note.user_id)
+    @note = Note.find(params[:id])
+    @user = User.find(@note.user_id)
     @roast = ''
     case @note.roast
     when 1
