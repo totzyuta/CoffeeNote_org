@@ -69,6 +69,7 @@ class NotesController < ApplicationController
   def edit
     @current_user = User.find_by(id: session[:user_id])
     @note = Note.find(params[:id])
+    gon.overall = @note.overall
   end
 
   def update
