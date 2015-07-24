@@ -26,6 +26,17 @@ p {
   margin: 0px 0px;
 }
 
+.logo-image {
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 40px;
+}
+
+.navbar-brand {
+  margin-left: -5px !important; 
+}
+
 .avater-image {
   margin-right: 0px;
   border-radius: 300px;
