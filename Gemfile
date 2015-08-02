@@ -51,3 +51,16 @@ gem 'carrierwave'
 # bootstrap
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+group :development, :test do
+  gem "rspec-rails", "~> 3.1.0" # RSpec wrapper library especially for Rails
+  gem "factory_girl_rails", "~>4.4.1" # Replace default fixture to useful factory
+end
+
+group :test do
+  gem "faker", "~> 1.4.3" # provide useful factory like emainl address
+  gem "capybara", "~> 2.4.3" # simulator for interaction between users and web application
+  gem "database_cleaner", "~> 1.3.0" # cleaner for test database to test with clean db
+  gem "launchy", "~> 2.4.2" # lanch anytime to debug while testing
+  gem "selenium-webdriver", "~> 2.43.0" # test JavaScript by Capybara
+end
