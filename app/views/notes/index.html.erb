@@ -1,8 +1,30 @@
-<h1>All Users' Notes</h1>
+<%= stylesheet_link_tag 'inside/notes_index' %>
+
+<!--
+  <h2>All Users' Notes</h2>
+-->
+
+<div class="container">
 <% @notes.each do |note| %>
-  <p>Blend Name: <%= note.blendName %></p>
-  <p>Date: <%= note.date %></p>
-  <p>overall: <%= note.overall %></p>
-  <p><%= link_to 'Detail', "/notes/#{note.id}" %>
-  <hr>
+  <div class="note note-all">
+    <% if note.coffee_image1? %>
+      <%= link_to image_tag(note.coffee_image1.url, size: '350x350', :class => 'note note-image'), note_path(note) %>
+      
+    <% else %>
+      <%= link_to image_tag('sample-image.gif', size: '350x350x', :class => 'note-image'), note_path(note) %>
+    <% end %>
+    <%= link_to note.blendName, note_path(note), :class=> 'note content note-title' %>
+    <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
+    <p class="note content note-place"><%= note.place %></p>
+    <p class="note content note-overall">
+    <% note.overall.times do %>
+      ★
+    <% end %>
+    </p>
+    <div class="note note-back-cover"></div>
+    <%= link_to '', note_path(note), :class => 'note note-cover' %>
+    <%= link_to image_tag(@users.find_by(id: note.user_id).image_url, :size => "25x25", :class => 'user-image'), user_path(@users.find_by(id: note.user_id).nickname), :id => 'user-image-link' %>
+    <p class="note content note-user"><%= link_to "#{@users.find_by(id: note.user_id).nickname}", user_path(@users.find_by(id: note.user_id).nickname), :class => "note-user-text" %></p>
+  </div>
 <% end %>
+</div>

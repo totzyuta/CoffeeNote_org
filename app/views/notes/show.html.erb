@@ -1,16 +1,59 @@
-<h1>Note of <%= @note.blendName %></h1>
-<p>Blend Name: <%= @note.blendName %></p>
-<p>Date: <%= @note.date %></p>
-<p>User: <%= @user.nickname %></p>
-<p>Origin: <%= @note.origin %></p>
-<p>Place: <%= @note.place %></p>
-<p>roast: <%= @note.roast %></p>
-<p>body: <%= @note.body %></p>
-<p>flavor: <%= @note.flavor %></p>
-<p>acidity: <%= @note.acidity %></p>
-<p>sweetness: <%= @note.sweetness %></p>
-<p>cleancup: <%= @note.cleancup %></p>
-<p>aftertaste: <%= @note.aftertaste %></p>
-<p>overall: <%= @note.overall %></p>
-<p>comment: <%= @note.comment %></p>
-  <hr>
+<%= stylesheet_link_tag 'inside/notes_show' %>
+
+<div class="box">
+  <%= link_to @note.blendName, note_path(@note), :class => 'blendName' %>
+  <span class="stars"><% @note.overall.times { %>★ <% } %></span>
+  <% if @note.coffee_image1? %>
+    <%= image_tag @note.coffee_image1.url, :class => 'image' %>
+  <% else %>
+    <%= image_tag 'noimage.gif', :class=> 'image' %>
+  <% end %>
+  <div class="attributes">
+    <span class='attribute'>Date</span>
+    <span class='data'><%= "#{@note.date}".gsub!(/^(....)-(.*)-(\S*)\s.*/, '\1 / \2 / \3') %></span>
+    <hr>
+    <span class='attribute'>Place</span>
+    <span class='data'><%= @note.place %></span>
+    <hr>
+    <span class='attribute'>Origin</span>
+    <span class='data'><%= @note.origin %></span>
+    <hr>
+    <span class='attribute'>roast</span>
+    <span class='data'><%= @roast %></span>
+    <hr>
+    <span class='attribute'>dark</span>
+    <span class='data'><%= @dark %></span>
+    <hr>
+    <span class='attribute'>body</span>
+    <span class='data'><%= @body %></span>
+    <hr>
+    <span class='attribute'>flavor</span>
+    <span class='data'><% @note.flavor.times{ %>★ <% } %></span>
+    <hr>
+    <span class='attribute'>acidity</span>
+    <span class='data'><% @note.acidity.times{ %>★ <% } %></span>
+    <hr>
+    <span class='attribute'>sweetness</span>
+    <span class='data'><% @note.sweetness.times{ %>★ <% } %></span>
+    <hr>
+    <span class='attribute'>cleancup</span>
+    <span class='data'><% @note.cleancup.times{ %>★ <% } %></span>
+    <hr>
+    <span class='attribute'>aftertaste</span>
+    <span class='data'><% @note.aftertaste.times{ %>★ <% } %></span>
+    <hr>
+  </div>
+  <span class='comment'>comment</span>
+  <div class='comment-box'>
+    <span class='comment-text'><%= @note.comment %></span>
+  </div>
+  <div class="user-wrapper">
+    <% if logged_in? %>
+      <% if @current_user.id == @note.user_id %>
+        <%= link_to 'Edit', edit_note_path(@note), :class => 'button editButton' %>
+        <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button deleteButton' %>
+      <% end %>
+    <% end %>
+    <span class='note-user'><%= link_to image_tag(@user.image_url, :size => "25x25", :class => 'user-image'), user_path(@user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@user.nickname}", "/users/#{@user.nickname}", :class => 'note-user-text' %></span>
+  </div>
+</div>

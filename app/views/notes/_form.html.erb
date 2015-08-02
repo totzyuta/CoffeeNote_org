@@ -1,0 +1,90 @@
+<%= form_for(@note) do |f| %>
+<div class="box">
+  <%= f.text_field :blendName, :class => 'blendName', :placeholder => 'Blend Name' %>
+  <%= f.hidden_field :overall, :value => '3', :id => 'overall' %>
+  <%= javascript_include_tag 'jquery.rateyo' %>
+  <div id="rateYo" class="stars"></div>
+  <%= f.file_field :coffee_image1 %>
+  <% if @note.coffee_image1? %>
+    <%= image_tag @note.coffee_image1.url, width: '240', :class => 'image' %>
+  <% else %>
+    <%= image_tag 'sample-image.jpg', :class => 'image', :style =>'opacity: 0.5;' %>
+  <% end %>
+  <div class="attributes">
+    <span class='attribute'>Date</span>
+    <% if @note.date != nil %>
+      <%= f.date_field :date, :class => 'data' %>
+    <% else %>
+      <%= f.date_field :date, value: Date.today, :class => 'data' %>
+    <% end %>
+    <hr>
+    <span class='attribute'>Place</span>
+    <%= f.text_field :place, :class => 'data' %>
+    <hr>
+    <span class='attribute'>Origin</span>
+    <%= f.text_field :origin, :class => 'data' %>
+    <hr>
+    <span class='attribute'>roast</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "roast", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>dark</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "dark", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>body</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "body", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>flavor</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "flavor", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>acidity</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "acidity", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>sweetness</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "sweetness", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>cleancup</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "cleancup", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+    <span class='attribute'>aftertaste</span>
+    <span class='data'>
+    <% 5.times do |i| %>
+      <%= i+1 %><%= radio_button("note", "aftertaste", "#{i+1}") %> 
+    <% end %>
+    </span>
+    <hr>
+  </div>
+  <span class='comment'>comment</span>
+  <div class='comment-box'>
+    <%= f.text_area :comment, cols: 40, rows: 10 %><br>
+  </div>
+  <%= f.submit :class => 'button', :id => 'submit-button', :value => 'Update' %>
+</div>
+<% end %>
