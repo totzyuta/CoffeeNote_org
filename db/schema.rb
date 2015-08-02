@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207173036) do
+ActiveRecord::Schema.define(version: 20141231065003) do
 
   create_table "notes", force: true do |t|
     t.integer  "uid"
-    t.string   "blendName"
-    t.string   "origin"
-    t.string   "place"
+    t.string   "blendName",     limit: 50, null: false
+    t.string   "origin",        limit: 50, null: false
+    t.string   "place",         limit: 50, null: false
     t.integer  "roast"
     t.integer  "dark"
     t.integer  "body"
@@ -37,12 +37,14 @@ ActiveRecord::Schema.define(version: 20141207173036) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "nickname",   null: false
-    t.string   "image_url",  null: false
+    t.string   "provider",    null: false
+    t.string   "uid",         null: false
+    t.string   "nickname",    null: false
+    t.string   "image_url",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile"
+    t.string   "fav_roaster"
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

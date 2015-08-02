@@ -1,14 +1,57 @@
-<h1><%= @user.nickname %>'s My Page</h1>
-<p>ID: <%= @user.id %></p>
-<p>Provider: <%= @user.provider %></p>
-<p>Name: <%= @user.nickname %></p>
+<%= stylesheet_link_tag 'inside/users_show' %>
 
+<div class="container">
 
-<h2><%= @user.nickname %>'s NoteBook</h2>
-<% @notes.each do |note| %>
-  <p>Blend Name: <%= note.blendName %></p>
-  <p>Date: <%= note.date %></p>
-  <p>overall: <%= note.overall %></p>
-  <p><%= link_to 'Detail', "/notes/#{note.id}" %>
-  <hr>
-<% end %>
+  <!-- sidebar -->
+  <div class="sidebar">
+    <p class='note-user'><%= link_to image_tag(@user.image_url, :size => "25x25", :class => 'user-image'), user_path(@user.nickname), :id => 'avater-image-link' %></li><%= link_to "#{@user.nickname}", "/users/#{@user.nickname}", :class => 'note-user-text' %></p>
+  <div class="attributes">
+    <span class='attribute'>All Notes</span>
+    <span class='data'><%= @notes.count %></span>
+    <hr>
+    <span class='attribute'>Five Stars</span>
+    <span class='data'><%= @five_star_notes %></span>
+    <hr>
+    <span class='attribute'>From</span>
+    <span class='data'><%= "#{@user.created_at}".gsub!(/^(....)-(.*)-(\S*)\s.*/, '\1 / \2 / \3') %></span>
+    <hr>
+    <span class='attribute'>Fav Roaster</span>
+    <span class='data'><%= @user.fav_roaster %></span>
+    <hr>
+    <span class='attribute'>Profile</span>
+    <span class='profile'><%= @user.profile %></span>
+  </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="notes">
+    <p class="title"><%= @user.nickname %>'s NoteBook</p>
+    <% @notes.each do |note| %>
+      <div class="note note-all">
+        <% if note.coffee_image1? %>
+          <%= link_to image_tag(note.coffee_image1.url, size: '350x350', :class => 'note note-image'), note_path(note) %>
+          
+        <% else %>
+          <%= link_to image_tag('sample-image.gif', size: '350x350x', :class => 'note-image'), note_path(note) %>
+        <% end %>
+        <%= link_to note.blendName, note_path(note), :class=> 'note content note-title' %>
+        <p class="note content note-date"><%= "#{note.date}".gsub!(/^....-(.*)-(\S*)\s.*/, '\1/\2') %></p>
+        <p class="note content note-place"><%= note.place %></p>
+        <p class="note content note-overall">
+        <% note.overall.times do %>
+          ★
+        <% end %>
+        </p>
+        <div class="note note-back-cover"></div>
+        <%= link_to '', note_path(note), :class => 'note note-cover' %>
+        <% if logged_in? %>
+          <% if @current_user.id == note.user_id %>
+            <%= link_to 'Edit', edit_note_path(note), :class => 'button editButton' %>
+            <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button deleteButton' %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

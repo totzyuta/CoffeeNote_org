@@ -1,0 +1,144 @@
+$main-color: #ef7169;
+$blue-color: #89BBFE;
+$text-color: #878787;
+$title-color: #666666;
+$background-color: #F5F5F5; 
+$green-color: #9ddba7;
+
+.container{ 
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.note-all {
+  width: 280px;
+  height: 280px;
+  float: left;
+  margin: 16px;
+}
+
+.note-back-cover {
+  display: inline-block;
+  position: relative;
+  top: -433px;
+  width: 100%;
+  height: 280px;
+  z-index: 10;
+  background-color: #000;
+  opacity: 0.2;
+}
+
+.note-cover {
+  display: inline-block;
+  position: relative;
+  top: -718px;
+  width: 100%;
+  height: 280px;
+  background-color: #FFF;
+  z-index: 18;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;  
+  &:hover {
+    opacity: 0.3;
+    text-decoration: none;
+  }
+}
+
+.note-image {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.content {
+  color: #FFFFFF;
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: -15px;
+}
+
+.note-title {
+  display: inline-block;
+  height: 64px;
+  max-width: 395px;
+  font-size: 35px;
+  font-weight: 100;
+  top: -290px;
+  margin-left: -10px;
+  background-color: rgba(255, 110, 97, 0.9);
+  padding-left: 15px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 20;
+  &:hover {
+    color: $blue-color;
+    text-decoration: none;
+  }
+}
+
+.note-date {
+  top: -245px;
+  font-size: 30px;
+  font-weight: 100;
+  margin-top: 7px;
+  margin-left: 17px;
+  z-index: 15;
+}
+
+.note-overall {
+  top: -219px;
+  font-size: 32px;
+  margin-left: 20px;
+  z-index: 15;
+}
+
+.note-place {
+  top: -233px;
+  font-size: 35px;
+  font-weight: 100;
+  margin-left: 22px;
+  max-width: 390px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 15;
+}
+
+.note-user {
+  position: relative;
+  top: -756px;
+  left: -35px;
+  font-size: 20px;
+  font-weight: 100;
+  height: 50px;
+  background-color: $green-color;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 15px;
+  padding-left: 36px;
+  display: inline;
+  a {
+    color: #FFF;
+    &:hover { 
+      text-decoration: none;
+    }
+    &:visited { color: #FFFFFF; }
+    &:visited { color: #FFFFFF; }
+  }
+  z-index: 20;
+}
+
+.user-image {
+  position: relative;
+  top: -760px;
+  left: 20px;
+  z-index: 21;
+  border-radius: 100px;
+}

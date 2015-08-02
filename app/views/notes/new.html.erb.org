@@ -1,0 +1,3 @@
+<h2>New Note</h2>
+
+<%= render 'form' %>

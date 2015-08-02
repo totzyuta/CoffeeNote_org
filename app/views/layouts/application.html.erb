@@ -2,33 +2,68 @@
 <html>
 <head>
   <title>CoffeeNote</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= Gon::Base.render_data({}) %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'style', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><%= link_to 'Coffee Note', '/' %></h1>
-  <% if logged_in? %>
-    <p><%= link_to 'Logout', logout_path %></p>
-    <p>User ID: <%= current_user.id %></p>
-    <p>Current User: <%= current_user.nickname %></p>
-    <p><%= link_to 'My NoteBook', "/users/#{current_user.nickname}" %></p>
-    <p><%= link_to 'Create New Note', '/notes/new' %></p>
-  <% else %>
-    <p><%= link_to 'Login by Twitter', '/auth/twitter' %></p>
-  <% end %>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <a href="/notes">
+        <!-- TODO: collapse the data when toggle apper / link not working
+        <div class="navbar-header" data-toggle="collapse">
+        -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <%= image_tag "logo.png", class: 'logo-image' %>
+          <%= link_to 'Coffee Note', notes_path, class: 'nav navbar-nav navbar-left navbar-brand' %>
+        <!--
+        </div>
+        -->
+      </a>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to '+NewNote', new_note_path %></li>
+            <li><%= link_to 'MyNoteBook', user_path(current_user.nickname) %></li>
+            <!-- <p>User ID: <%= current_user.id %></p> -->
+            <li><%= link_to image_tag(current_user.image_url, :size => "25x25", :class => 'avater-image'), user_path(current_user.nickname), :id => 'avater-image-link' %></li>
+            <li><%= link_to "@#{current_user.nickname}", user_path(current_user.nickname), :id => "user-name" %></li>
+            <li><%= link_to 'Logout', logout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login by Twitter', '/auth/twitter' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!--
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% end %>
   <% if flash[:alert] %>
     <%= flash[:alert] %>
   <% end %>
+-->
+  <div class="wrapper">
+    <%= yield %>
+  </div>
+
+  <footer>
   <hr>
-
-  <%= yield %>
-
-  <hr>
-<%= link_to 'Back', :back %>
-
+  <p class="footer copyright">Copyright (c) CoffeeNote inc. all rights reserved.</p>
+  <!--
+    <div class="footer line" id="footer-line1"></div>
+    <div class="footer line" id="footer-line2"></div>
+  -->
+  </footer>
+  
 </body>
 </html>
