@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :integer          not null, primary key
+#  provider    :string(255)      not null
+#  uid         :string(255)      not null
+#  nickname    :string(255)      not null
+#  image_url   :string(255)      not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  profile     :string(255)
+#  fav_roaster :string(255)
+#
+
 class User < ActiveRecord::Base
   has_many :created_notes, class_name: 'Note', foreign_key: :uid
   has_many :notes
