@@ -1,0 +1,4 @@
+linter:
+  rubocop:
+    options:
+      config: 'lint_config/.rubocop.yml'
