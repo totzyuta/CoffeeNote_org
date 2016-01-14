@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # notes
   get '/notes' => 'notes#index'
   get '/notes/new' => 'notes#new', as: :new_note
