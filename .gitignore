@@ -20,3 +20,6 @@ public/uploads/
 
 # I hate you
 .DS_Store
+
+# Ignore bundled gems
+vendor/gems/*

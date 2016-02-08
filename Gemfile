@@ -5,7 +5,7 @@ gem 'rails', '5.0.0.beta1'
 gem 'sqlite3'
 
 # Wait for https://github.com/activeadmin/activeadmin/pull/4145 to be merged in
-gem 'activeadmin', github: 'tjgrathwell/activeadmin', branch: 'rails5'
+gem 'activeadmin', github: 'activeadmin/activeadmin', branch: 'master'
 # Wait for https://github.com/justinfrench/formtastic/pull/1184 to be merged in
 gem 'formtastic', github: 'jtomaszewski/formtastic', branch: 'master'
 # gem 'bcrypt', '~> 3.1.7'
