@@ -13,3 +13,4 @@
 @user = User.new
 @user.username = 'yuta'
 @user.save
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
