@@ -22,4 +22,4 @@ public/uploads/
 .DS_Store
 
 # Ignore bundled gems
-vendor/gems/*
+vendor/gems/
