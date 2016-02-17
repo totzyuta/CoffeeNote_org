@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :notes
 
   namespace :admin do
+    get "/", to: "top#index"
     resources :users
     resources :notes
   end
