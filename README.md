@@ -1,23 +1,24 @@
-# CoffeeNote
+## README
 
-## Vision
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-**Life is too short to drink bad coffee.**
+Things you may want to cover:
 
+* Ruby version
 
-## Axis
+* System dependencies
 
-* Be on the cutting-edge of Rails/Ruby versions.
+* Configuration
 
+* Database creation
 
-## Release Schedule
+* Database initialization
 
-### ver2.0 (2016年3月中)
+* How to run the test suite
 
-最初は現状CoffeeNoteで実現していることをAPIを使って実現できるようにする。
+* Services (job queues, cache servers, search engines, etc.)
 
-詳しい仕様は以下。
+* Deployment instructions
 
-ただ、Noteとそれに対するReviewがあるのみ。極限に機能はシンプルに。
-
-ただ、**拡張性は必ず考慮する**。自分の最終的に作りたいものの到達点を描いておくこと。
+* ...

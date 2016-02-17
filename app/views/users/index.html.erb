@@ -1,5 +1,0 @@
-<h1>All Users</h1>
-<% @users.each do |user| %>
-  <p>Name: <%= user.nickname %></p>
-  <p><%= link_to 'User Page (NoteBook)', user_path(user.nickname) %></p>
-<% end %>

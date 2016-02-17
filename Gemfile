@@ -1,30 +1,45 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.3.0'
-gem 'rails', '5.0.0.beta1'
-gem 'sqlite3'
+gem 'rails', '>= 5.0.0.beta1', '< 5.1'
+gem 'pg', '~> 0.18'
 
-# gem 'bcrypt', '~> 3.1.7'
-# gem 'capistrano-rails', group: :development
-gem 'carrierwave'
-gem 'coffee-rails'
-# gem 'debugger', group: [:development, :test]
-gem 'gon'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'less-rails'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'sass-rails'
-gem 'sprockets-rails', '2.3.3'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'slim-rails'
-gem 'therubyracer'
-gem 'turbolinks'
-gem "twitter-bootstrap-rails"
+gem "coffee-rails", "~> 4.1.0"
+gem "enumerize"
+gem "jbuilder", "~> 2.0"
+gem "jquery-rails"
+gem "sass-rails", "~> 5.0"
+gem "sdoc", "~> 0.4.0", group: :doc
+gem "therubyracer", platforms: :ruby
+gem "turbolinks"
 gem 'uglifier', '>= 1.3.0'
-# gem 'unicorn'
+gem "unicorn"
+
+group :development, :test do
+  gem "byebug"
+  gem "factory_girl_rails"
+  gem "faker"
+  gem "guard-rspec"
+  gem "launchy"
+  gem "pry-rails"
+  gem "rails-erd"
+  gem "rspec-rails"
+  gem "spring"
+  gem "web-console", "~> 2.0"
+end
 
 group :development do
-  gem 'spring'
+  gem "better_errors"
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "rails_best_practices"
+end
+
+group :test do
+  gem "capybara"
+  gem "database_rewinder"
+  gem "rspec-request_describer"
+  gem "rspec-its"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers", require: false
+  gem "test_after_commit"
 end
